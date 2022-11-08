@@ -12,18 +12,24 @@ const displaySingleUser = user =>{
 }
 
 
-
 //..2..mealDb example 
+const searchMeal = () =>{
+   let searchText = document.getElementById("search-input").value;
+   document.getElementById("search-input").value ='';
+   loadMeal(searchText)
+}
+
 const loadMeal = (searchText) => {
     const mealUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
     fetch(mealUrl)
     .then(res => res.json())
     .then(data => displayMeal(data.meals));
 }
-loadMeal('fish')
+// loadMeal('fish')
 
 const displayMeal = meals => {
     const container = document.getElementById('meals');
+    container.textContent = '';
     meals.forEach(meal => {
         const div = document.createElement('div');
         div.innerHTML = `
@@ -33,11 +39,8 @@ const displayMeal = meals => {
         `
         container.appendChild(div);
     });
-    
-    // console.log(meals);
+
 }
-
-
 const displayMealDetail = (mealName)  => {
   console.log(mealName)
 }
