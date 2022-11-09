@@ -5,7 +5,7 @@ const loadingToggleSpinner = (spinnerStyle) =>{
 const toggleSearchResults = (previousData) =>{
     document.getElementById('meals').style.display = previousData; 
 }
-
+// seach meals
 const searchMeal = () =>{
     const inputText = document.getElementById('search-input').value;
     document.getElementById('search-input').value ='';
@@ -37,8 +37,7 @@ const findMeals = (meals) =>{
     displayData.appendChild(div);
     console.log(meal)        
     });
-    // toggleSearchResults('non')
-    
+    // toggle spinner style and meals     
     toggleSearchResults('block')
     loadingToggleSpinner('none')   
 }
